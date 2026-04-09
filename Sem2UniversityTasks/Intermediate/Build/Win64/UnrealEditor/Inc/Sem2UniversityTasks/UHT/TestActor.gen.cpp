@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeTestActor() {}
 
 // ********** Begin Cross Module References ********************************************************
 ENGINE_API UClass* Z_Construct_UClass_AActor();
+ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 SEM2UNIVERSITYTASKS_API UClass* Z_Construct_UClass_ATestActor();
 SEM2UNIVERSITYTASKS_API UClass* Z_Construct_UClass_ATestActor_NoRegister();
 UPackage* Z_Construct_UPackage__Script_Sem2UniversityTasks();
@@ -92,7 +93,18 @@ struct Z_Construct_UClass_ATestActor_Statics
 		{ "IncludePath", "TestActor.h" },
 		{ "ModuleRelativePath", "TestActor.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_MovementSpeed_MetaData[] = {
+		{ "Category", "Movement" },
+		{ "ModuleRelativePath", "TestActor.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_AimingInputAction_MetaData[] = {
+		{ "Category", "Input" },
+		{ "ModuleRelativePath", "TestActor.h" },
+	};
 #endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_MovementSpeed;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_AimingInputAction;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_ATestActor_Greeting, "Greeting" }, // 2654837276
@@ -103,6 +115,13 @@ struct Z_Construct_UClass_ATestActor_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ATestActor_Statics::NewProp_MovementSpeed = { "MovementSpeed", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATestActor, MovementSpeed), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MovementSpeed_MetaData), NewProp_MovementSpeed_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ATestActor_Statics::NewProp_AimingInputAction = { "AimingInputAction", nullptr, (EPropertyFlags)0x0114000000000015, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ATestActor, AimingInputAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AimingInputAction_MetaData), NewProp_AimingInputAction_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ATestActor_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATestActor_Statics::NewProp_MovementSpeed,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ATestActor_Statics::NewProp_AimingInputAction,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ATestActor_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ATestActor_Statics::DependentSingletons[])() = {
 	(UObject* (*)())Z_Construct_UClass_AActor,
 	(UObject* (*)())Z_Construct_UPackage__Script_Sem2UniversityTasks,
@@ -114,11 +133,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_ATestActor_Statics::Cla
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	FuncInfo,
-	nullptr,
+	Z_Construct_UClass_ATestActor_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
 	UE_ARRAY_COUNT(FuncInfo),
-	0,
+	UE_ARRAY_COUNT(Z_Construct_UClass_ATestActor_Statics::PropPointers),
 	0,
 	0x009001A4u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ATestActor_Statics::Class_MetaDataParams), Z_Construct_UClass_ATestActor_Statics::Class_MetaDataParams)
@@ -139,10 +158,10 @@ ATestActor::~ATestActor() {}
 struct Z_CompiledInDeferFile_FID_Unreal_cpp_FGCT4016_Task_2_Sem2UniversityTasks_Source_Sem2UniversityTasks_TestActor_h__Script_Sem2UniversityTasks_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ATestActor, ATestActor::StaticClass, TEXT("ATestActor"), &Z_Registration_Info_UClass_ATestActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATestActor), 1064802955U) },
+		{ Z_Construct_UClass_ATestActor, ATestActor::StaticClass, TEXT("ATestActor"), &Z_Registration_Info_UClass_ATestActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ATestActor), 382728264U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_cpp_FGCT4016_Task_2_Sem2UniversityTasks_Source_Sem2UniversityTasks_TestActor_h__Script_Sem2UniversityTasks_702438828(TEXT("/Script/Sem2UniversityTasks"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_Unreal_cpp_FGCT4016_Task_2_Sem2UniversityTasks_Source_Sem2UniversityTasks_TestActor_h__Script_Sem2UniversityTasks_4133953349(TEXT("/Script/Sem2UniversityTasks"),
 	Z_CompiledInDeferFile_FID_Unreal_cpp_FGCT4016_Task_2_Sem2UniversityTasks_Source_Sem2UniversityTasks_TestActor_h__Script_Sem2UniversityTasks_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_Unreal_cpp_FGCT4016_Task_2_Sem2UniversityTasks_Source_Sem2UniversityTasks_TestActor_h__Script_Sem2UniversityTasks_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

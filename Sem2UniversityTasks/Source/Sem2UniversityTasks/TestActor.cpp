@@ -2,7 +2,7 @@
 
 
 #include "TestActor.h"
-
+#include "EnhancedInputComponent.h"
 
 ATestActor::ATestActor()
 {
@@ -30,11 +30,43 @@ void ATestActor::BeginPlay()
 void ATestActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	;	Greeting();
+	;	;
 }
 
 void ATestActor::Greeting()
 {
 	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Hello there!"));
 }
+
+void ATestActor::Farewell()
+{
+	GEngine->AddOnScreenDebugMessage(-1, 5.f, FColor::Green, TEXT("Bye Bye there!"));
+}
+
+void ATestActor::MoveSetup(UInputComponent* PlayerInputComponent)
+{
+	if (UEnhancedInputComponent* Input = Cast<UEnhancedInputComponent>(PlayerInputComponent))
+	{
+		if (AimingInputAction)
+		{
+			Input->BindAction(AimingInputAction, ETriggerEvent::Triggered, this, &ATestActor::MoveItself);
+		}
+	}
+}
+
+void ATestActor::MoveItself(const FInputActionInstance& Instance)
+{
+	float InputValue = Instance.GetValue().Get<float>();
+
+	if (FMath::Abs(InputValue) > KINDA_SMALL_NUMBER)
+	{
+		FVector CurrentLocation = GetActorLocation();
+		CurrentLocation.Y += InputValue * MovementSpeed * GetWorld()->DeltaTimeSeconds;
+
+		SetActorLocation(CurrentLocation);
+
+	}
+
+}
+
 
